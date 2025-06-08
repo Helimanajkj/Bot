@@ -17,7 +17,7 @@ def handle_connect():
 def keep_alive():
     """Start the Flask server in a separate thread to keep the bot alive"""
     def run():
-        socketio.run(app, host='0.0.0.0', port=5000, use_reloader=False, log_output=False)
+        socketio.run(app, host='0.0.0.0', port=5000, use_reloader=False, log_output=False, allow_unsafe_werkzeug=True)
     
     server_thread = threading.Thread(target=run)
     server_thread.daemon = True
